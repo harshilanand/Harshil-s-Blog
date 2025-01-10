@@ -1,2 +1,18 @@
+# Node.js modules
+node_modules/
 
-.codegpt
+# Build output
+build/
+dist/
+
+# Logs
+*.log
+
+# Environment variables
+.env
+
+# VS Code settings
+.vscode/
+
+# macOS system files
+.DS_Store

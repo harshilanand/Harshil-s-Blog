@@ -1,21 +1,23 @@
 {
     "builds": [
       {
-        "src": "package.json",
+        "src": "backend/server.js",
         "use": "@vercel/node",
-        "config": { "zeroConfig": true }
+        "config": {
+          "includeFiles": ["backend/**/*"]
+        }
       },
       {
-        "src": "vite.config.js",
+        "src": "client/package.json",
         "use": "@vercel/static-build",
         "config": {
-          "distDir": "dist"
+          "distDir": "client/dist"
         }
       }
     ],
     "routes": [
-      { "src": "/api/(.*)", "dest": "/api/$1" },
-      { "src": "/(.*)", "dest": "/index.html" }
+      { "src": "/api/(.*)", "dest": "/backend/server.js" },
+      { "src": "/(.*)", "dest": "/client/dist/$1" }
     ],
     "env": {
       "NODE_ENV": "production"
