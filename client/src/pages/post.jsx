@@ -10,7 +10,7 @@ export default function Post() {
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await fetch(`http://localhost:3001/api/post/getPost/${slug}`);
+        const res = await fetch(`https://harshil-s-blog.onrender.com/api/post/getPost/${slug}`);
         const data = await res.json();
         if (res.ok) {
           setPost(data.post);

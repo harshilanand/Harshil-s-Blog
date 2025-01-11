@@ -77,7 +77,7 @@ export default function CreatePost() {
         return;
       }
 
-      const res = await axios.post('http://localhost:3001/api/post/createPost', formData, {
+      const res = await axios.post('https://harshil-s-blog.onrender.com/api/post/createPost', formData, {
         headers: { 'Content-Type': 'application/json' },
       });
 

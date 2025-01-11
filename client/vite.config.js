@@ -9,7 +9,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': 'http://localhost:3001', // Proxy to backend server
+      '/api': 'https://harshil-s-blog.onrender.com', // Proxy to backend server
     },
   },
   resolve: {

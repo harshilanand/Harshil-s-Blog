@@ -9,7 +9,7 @@ export default function Home() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await fetch("http://localhost:3001/api/post/getPosts");
+        const res = await fetch("https://harshil-s-blog.onrender.com/api/post/getPosts");
         const data = await res.json();
         if (res.ok) {
           setPosts(data.posts.reverse()); // Reverse the order to display the latest posts first
