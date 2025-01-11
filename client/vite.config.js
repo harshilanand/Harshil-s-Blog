@@ -5,6 +5,7 @@ export default defineConfig({
   build: {
     outDir: 'dist'
   },
+  base: '/',
   plugins: [react()],
   server: {
     proxy: {
