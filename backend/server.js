@@ -16,7 +16,22 @@ cloudinary.config({
 });
 
 // CORS Options
-app.use(cors({ origin: 'http://localhost:5173', methods: 'GET,POST,DELETE,PUT', credentials: true }));
+const allowedOrigins = [
+  'http://localhost:5173', // Local development
+  'https://your-frontend.netlify.app', // Deployed frontend
+];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: 'GET,POST,DELETE,PUT',
+  credentials: true,
+}));
 
 // Middleware
 app.use(express.json());
@@ -33,9 +48,13 @@ mongoose
 // Routes
 app.use('/api/post', require('./routes/postroutes'));
 
-// Catch-all route for undefined endpoints
-app.use((req, res) => {
-  res.status(404).json({ message: 'Endpoint not found' });
+// Catch-all route for undefined API endpoints
+app.use((req, res, next) => {
+  if (req.originalUrl.startsWith('/api')) {
+    res.status(404).json({ message: 'Endpoint not found' });
+  } else {
+    next();
+  }
 });
 
 // Centralized Error Handling Middleware
