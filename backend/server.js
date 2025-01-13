@@ -18,7 +18,7 @@ cloudinary.config({
 // CORS Options
 const allowedOrigins = [
   'http://localhost:5173', // Local development
-  'https://your-frontend.netlify.app', // Deployed frontend
+  'https://harshils-blog.netlify.app/', // Deployed frontend
 ];
 
 app.use(cors({
