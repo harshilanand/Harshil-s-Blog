@@ -1,4 +1,4 @@
-Blog Application
+**Blog Application**
 A fully functional blog application built with React, Node.js, Firebase, and MongoDB. The app allows users to create, view, and manage blog posts, with role-based access control for admin functionality.
 
 Features
